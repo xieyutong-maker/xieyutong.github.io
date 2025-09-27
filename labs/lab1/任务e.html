@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Task e: Colorful Triangle with Gradient</title>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        #version 300 es
+        in vec4 aPosition;
+        in vec4 aColor;
+        out vec4 vColor;
+        void main(){
+            gl_Position = aPosition;
+            vColor = aColor;
+        }
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        #version 300 es
+        precision mediump float;
+        in vec4 vColor;
+        out vec4 fColor;
+        void main(){
+            fColor = vColor;
+        }
+    </script>
+    <script type="text/javascript" src="../js/common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../js/common/initShaders.js"></script>
+    <script type="text/javascript" src="../js/common/glMatrix-0.9.5.min.js"></script>
+    <script type="text/javascript" src="../js/ch01/colorful-triangle.js"></script>
+</head>
+<body>
+    <canvas id="colorful-triangle-canvas" style="border:none;" width="500" height="500"></canvas>
+    
+    <div style="margin-top: 20px;">
+        <button onclick="changeTriangleSize(0.3)">小三角形</button>
+        <button onclick="changeTriangleSize(0.6)">中三角形</button>
+        <button onclick="changeTriangleSize(0.9)">大三角形</button>
+    </div>
+    
+    <p>任务e：彩色渐变三角形（红-绿-蓝）</p>
+</body>
+</html>
