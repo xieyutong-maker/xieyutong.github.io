@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>任务a - 修改三角形颜色</title>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        #version 300 es
+        in vec4 vPosition;
+        void main() {
+            gl_Position = vPosition;
+        }
+    </script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        #version 300 es
+        precision mediump float;
+        uniform vec4 uColor;
+        out vec4 fColor;
+        void main() {
+            fColor = uColor;
+        }
+    </script>
+    <script src="common/webgl-utils.js"></script>
+    <script src="common/initShaders.js"></script>
+    <script src="common/gl-matrix-min.js"></script>
+    <script src="js/task-a.js"></script>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        canvas { border: 2px solid #333; margin: 20px 0; }
+        button { margin: 5px; padding: 10px 15px; cursor: pointer; }
+        .code-comment { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>任务a：修改三角形的显示颜色</h1>
+    <a href="index.html">返回首页</a>
+    
+    <div class="code-comment">
+        // 原始代码：红色三角形（已注释保留）<br>
+        // gl.uniform4f(colorLoc, 1.0, 0.0, 0.0, 1.0); // 红色
+    </div>
+    
+    <canvas id="task-a-canvas" width="500" height="500"></canvas>
+    <div>
+        <button onclick="changeColor('red')">红色（原始）</button>
+        <button onclick="changeColor('blue')">蓝色</button>
+        <button onclick="changeColor('green')">绿色</button>
+    </div>
+</body>
+</html>
